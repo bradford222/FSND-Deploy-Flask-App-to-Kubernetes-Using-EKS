@@ -9,7 +9,7 @@ Parameters:
   EksClusterName:
     Type: String
     Description: The name of the EKS cluster created
-    Default: 
+    Default: eksctl-simple-jwt-api-cluster
     MinLength: 1
     MaxLength: 100
     ConstraintDescription: You must enter the EKS cluster name
@@ -17,7 +17,7 @@ Parameters:
   GitSourceRepo:
     Type: String
     Description: GitHub source repository - must contain a Dockerfile and buildspec.yml in the base
-    Default: 
+    Default: bradford222/FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS
     MinLength: 1
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub repository name
@@ -30,9 +30,10 @@ Parameters:
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub repository branch name
 
-  GitHubToken:
+  GitHubToken: 
     Type: String
     NoEcho: true
+    Default: 6310a25826c1c72cd827576b6b38f268a99482c5
     Description: GitHub API token - see https://github.com/blog/1509-personal-api-tokens
     MinLength: 3
     MaxLength: 100
@@ -40,7 +41,7 @@ Parameters:
 
   GitHubUser:
     Type: String
-    Default:
+    Default: bradford222
     Description: GitHub username or organization
     MinLength: 3
     MaxLength: 100
@@ -56,7 +57,7 @@ Parameters:
 
   KubectlRoleName:
     Type: String
-    Default: 
+    Default: UdacityFlaskDeployCBKubectlRole
     Description: IAM role used by kubectl to interact with EKS cluster
     MinLength: 3
     MaxLength: 100
@@ -87,19 +88,19 @@ Metadata:
           - EksClusterName
     ParameterLabels:
       GitHubUser:
-        default: Username
+        default: bradford222
       GitHubToken:
-        default: Access token
+        default: 6310a25826c1c72cd827576b6b38f268a99482c5
       GitSourceRepo:
-        default: Repository
+        default: https://github.com/bradford222/FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS.git
       GitBranch:
         default: Branch
       CodeBuildDockerImage:
         default: Docker image
       KubectlRoleName:
-        default: kubectl IAM role
+        default: UdacityFlaskDeployCBKubectlRole
       EksClusterName:
-        default: EKS cluster name
+        default: eksctl-simple-jwt-api-cluster
 
 
 Resources:
