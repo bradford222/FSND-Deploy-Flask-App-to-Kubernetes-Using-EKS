@@ -8,8 +8,8 @@ Parameters:
 
   EksClusterName:
     Type: String
-    Description: The name of the EKS cluster created
-    Default: eksctl-simple-jwt-api-cluster
+    Description: The name of the EKS cluster created test
+    Default: simple-jwt-api2
     MinLength: 1
     MaxLength: 100
     ConstraintDescription: You must enter the EKS cluster name
@@ -17,7 +17,7 @@ Parameters:
   GitSourceRepo:
     Type: String
     Description: GitHub source repository - must contain a Dockerfile and buildspec.yml in the base
-    Default: bradford222/FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS
+    Default: FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS
     MinLength: 1
     MaxLength: 100
     ConstraintDescription: You must enter a GitHub repository name
@@ -33,7 +33,7 @@ Parameters:
   GitHubToken: 
     Type: String
     NoEcho: true
-    Default: 6310a25826c1c72cd827576b6b38f268a99482c5
+    Default: 4ebbe1a3a51c9f54132cbc0b4f59e5f1d59ecda3
     Description: GitHub API token - see https://github.com/blog/1509-personal-api-tokens
     MinLength: 3
     MaxLength: 100
@@ -88,19 +88,19 @@ Metadata:
           - EksClusterName
     ParameterLabels:
       GitHubUser:
-        default: bradford222
+        default: Username
       GitHubToken:
-        default: 6310a25826c1c72cd827576b6b38f268a99482c5
+        default: Access token
       GitSourceRepo:
-        default: https://github.com/bradford222/FSND-Deploy-Flask-App-to-Kubernetes-Using-EKS.git
+        default: Repository
       GitBranch:
         default: Branch
       CodeBuildDockerImage:
         default: Docker image
       KubectlRoleName:
-        default: UdacityFlaskDeployCBKubectlRole
+        default: kubectl IAM role
       EksClusterName:
-        default: eksctl-simple-jwt-api-cluster
+        default: EKS cluster name
 
 
 Resources:
